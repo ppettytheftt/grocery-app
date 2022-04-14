@@ -16,21 +16,21 @@ public class FoodItemController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/grocery/food")
     public List<FoodItem> getAllFoodItems() {
-        return foodItemService.getAllGroceries();
+        return foodItemService.getAllFoodItems();
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/grocery/food")
     public void addFoodItem(@RequestBody FoodItem groceryItem) {
-        foodItemService.addGroceryItem(groceryItem);
+        foodItemService.addFoodItem(groceryItem);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/grocery/food/{id}")
-    public void updateFoodItem(@PathVariable Integer id, @RequestBody FoodItem newGroceryItem){
-        foodItemService.updateGrocery(id, newGroceryItem);
+    public void updateFoodItem(@PathVariable Integer id, @RequestBody FoodItem newFoodItem){
+        foodItemService.updateFoodItem(id, newFoodItem);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/grocery/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/grocery/food/{id}")
     public void deleteGrocery(@PathVariable Integer id) {
-        foodItemService.deleteGroceryById(id);
+        foodItemService.deleteFoodItemById(id);
     }
 }
