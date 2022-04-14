@@ -12,25 +12,25 @@ import java.util.List;
 public class FoodItemService {
 
     @Autowired
-    public FoodItemRepo groceryItemRepo;
+    public FoodItemRepo foodItemRepo;
 
-    public List<FoodItem> getAllGroceries() {
+    public List<FoodItem> getAllFoodItems() {
         List<FoodItem> groceryItems = new ArrayList<>();
-        groceryItemRepo.findAll().forEach(groceryItems::add);
+        foodItemRepo.findAll().forEach(groceryItems::add);
 
         return groceryItems;
     }
 
-    public void addGroceryItem(FoodItem groceryItem) {
-        groceryItemRepo.save(groceryItem);
+    public void addFoodItem(FoodItem groceryItem) {
+        foodItemRepo.save(groceryItem);
     }
 
-    public void updateGrocery(Integer id, FoodItem newGroceryItem) {
-        groceryItemRepo.save(newGroceryItem);
+    public void updateFoodItem(Integer id, FoodItem newGroceryItem) {
+        foodItemRepo.save(newGroceryItem);
     }
 
-    public void deleteGroceryById(Integer id) {
-        groceryItemRepo.deleteById(id);
+    public void deleteFoodItemById(Integer id) {
+        foodItemRepo.deleteById(id);
 
     }
 }
