@@ -1,18 +1,22 @@
 package com.ppettytheftt.groceryapp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name="canned_good")
 public class CannedGood {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer itemId;
+    @Column(name = "name")
     private String itemName;
+    @Column(name = "quantity")
     private Long itemQuantity;
+    @Column(name = "contents")
     private String contents;
+    @Column(name = "created", columnDefinition = "TIMESTAMP")
     private Date dateCreated;
 
     public CannedGood() {
