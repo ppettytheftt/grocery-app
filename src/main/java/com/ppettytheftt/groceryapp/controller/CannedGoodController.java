@@ -28,7 +28,7 @@ public class CannedGoodController {
     public void updateCannedGood(@PathVariable Integer id, @RequestBody CannedGood newCannedGood) {
         cannedGoodService.updateCannedGood(id, newCannedGood);
     }
-    
+
     @RequestMapping(method = RequestMethod.DELETE, value = "grocery/canned-goods/{id}")
     public void deleteCannedGood(@PathVariable Integer id) {
         cannedGoodService.deleteCannedGoodById(id);
