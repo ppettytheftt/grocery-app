@@ -8,10 +8,15 @@ import java.util.Date;
 public class CannedGood {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer itemId;
+    @Column(name = "name")
     private String itemName;
+    @Column(name = "quantity")
     private Long itemQuantity;
+    @Column(name = "contents")
     private String contents;
+    @Column(name = "created", columnDefinition = "TIMESTAMP")
     private Date dateCreated;
 
     public CannedGood() {
