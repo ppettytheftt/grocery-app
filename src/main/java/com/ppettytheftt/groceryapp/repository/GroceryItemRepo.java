@@ -1,9 +1,8 @@
 package com.ppettytheftt.groceryapp.repository;
 
 import com.ppettytheftt.groceryapp.model.GroceryItem;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-@Repository
-public interface GroceryItemRepo extends JpaRepository<GroceryItem, Integer> {
+public interface GroceryItemRepo extends CrudRepository<GroceryItem, Integer> {
+
 }

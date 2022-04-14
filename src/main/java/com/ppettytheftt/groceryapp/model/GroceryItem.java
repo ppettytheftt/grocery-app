@@ -1,18 +1,14 @@
 package com.ppettytheftt.groceryapp.model;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "grocery_list")
+@Table(name="grocery_item")
 public class GroceryItem {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer itemId;
     private String itemName;
     private Long itemQuantity;
