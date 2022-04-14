@@ -6,21 +6,23 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name="grocery_item")
-public class GroceryItem {
+@Table(name="food_item")
+public class FoodItem {
     @Id
     private Integer itemId;
     private String itemName;
     private Long itemQuantity;
+    private String foodType;
     private Date dateCreated;
 
-    public GroceryItem() {
+    public FoodItem() {
     }
 
-    public GroceryItem(Integer itemId, String itemName, Long itemQuantity, Date dateCreated) {
+    public FoodItem(Integer itemId, String itemName, Long itemQuantity, String foodType, Date dateCreated) {
         this.itemId = itemId;
         this.itemName = itemName;
         this.itemQuantity = itemQuantity;
+        this.foodType = foodType;
         this.dateCreated = dateCreated;
     }
 
@@ -46,6 +48,14 @@ public class GroceryItem {
 
     public void setItemQuantity(Long itemQuantity) {
         this.itemQuantity = itemQuantity;
+    }
+
+    public String getFoodType() {
+        return foodType;
+    }
+
+    public void setFoodType(String foodType) {
+        this.foodType = foodType;
     }
 
     public Date getDateCreated() {

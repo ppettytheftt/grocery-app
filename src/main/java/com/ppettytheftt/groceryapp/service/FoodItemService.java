@@ -1,7 +1,7 @@
 package com.ppettytheftt.groceryapp.service;
 
-import com.ppettytheftt.groceryapp.model.GroceryItem;
-import com.ppettytheftt.groceryapp.repository.GroceryItemRepo;
+import com.ppettytheftt.groceryapp.model.FoodItem;
+import com.ppettytheftt.groceryapp.repository.FoodItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,23 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class GroceryItemService {
+public class FoodItemService {
 
     @Autowired
-    public GroceryItemRepo groceryItemRepo;
+    public FoodItemRepo groceryItemRepo;
 
-    public List<GroceryItem> getAllGroceries() {
-        List<GroceryItem> groceryItems = new ArrayList<>();
+    public List<FoodItem> getAllGroceries() {
+        List<FoodItem> groceryItems = new ArrayList<>();
         groceryItemRepo.findAll().forEach(groceryItems::add);
 
         return groceryItems;
     }
 
-    public void addGroceryItem(GroceryItem groceryItem) {
+    public void addGroceryItem(FoodItem groceryItem) {
         groceryItemRepo.save(groceryItem);
     }
 
-    public void updateGrocery(Integer id, GroceryItem newGroceryItem) {
+    public void updateGrocery(Integer id, FoodItem newGroceryItem) {
         groceryItemRepo.save(newGroceryItem);
     }
 
