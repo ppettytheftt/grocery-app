@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoodItemService {
@@ -19,6 +20,15 @@ public class FoodItemService {
         foodItemRepo.findAll().forEach(groceryItems::add);
 
         return groceryItems;
+    }
+
+    public FoodItem getFoodItemById(Integer id) {
+        Optional<FoodItem> foodItem = foodItemRepo.findById(id);
+        if (foodItem.isPresent()) {
+            return foodItem.get();
+        } else {
+            return null;
+        }
     }
 
     public void addFoodItem(FoodItem groceryItem) {

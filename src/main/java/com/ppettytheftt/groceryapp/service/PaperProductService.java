@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PaperProductService {
@@ -19,6 +20,15 @@ public class PaperProductService {
         paperProductRepo.findAll().forEach(paperProducts::add);
 
         return paperProducts;
+    }
+
+    public PaperProduct getPaperProductById(Integer id) {
+        Optional<PaperProduct> paperProduct = paperProductRepo.findById(id);
+        if(paperProduct.isPresent()) {
+            return paperProduct.get();
+        } else {
+            return null;
+        }
     }
 
     public void addPaperProduct(PaperProduct paperProduct) {

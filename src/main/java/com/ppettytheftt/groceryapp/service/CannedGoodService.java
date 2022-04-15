@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CannedGoodService {
@@ -19,6 +20,15 @@ public class CannedGoodService {
         cannedGoodRepo.findAll().forEach(cannedGoods::add);
 
         return cannedGoods;
+    }
+
+    public CannedGood getCannedGoodById(Integer id) {
+        Optional<CannedGood> cannedGood = cannedGoodRepo.findById(id);
+        if (cannedGood.isPresent()) {
+            return cannedGood.get();
+        } else {
+            return null;
+        }
     }
 
     public void addCannedGood(CannedGood cannedGood) {

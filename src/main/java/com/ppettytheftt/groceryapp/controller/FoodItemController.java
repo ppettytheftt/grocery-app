@@ -8,27 +8,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/food")
 public class FoodItemController {
 
     @Autowired
     private FoodItemService foodItemService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/grocery/food")
+    @GetMapping
     public List<FoodItem> getAllFoodItems() {
         return foodItemService.getAllFoodItems();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/grocery/food")
+    @GetMapping("/{id}")
+    public FoodItem getFoodItemById(@PathVariable Integer id) {
+        return foodItemService.getFoodItemById(id);
+    }
+
+    @PostMapping
     public void addFoodItem(@RequestBody FoodItem groceryItem) {
         foodItemService.addFoodItem(groceryItem);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/grocery/food/{id}")
+    @PutMapping("/{id}")
     public void updateFoodItem(@PathVariable Integer id, @RequestBody FoodItem newFoodItem){
         foodItemService.updateFoodItem(id, newFoodItem);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/grocery/food/{id}")
+    @DeleteMapping("/{id}")
     public void deleteGrocery(@PathVariable Integer id) {
         foodItemService.deleteFoodItemById(id);
     }

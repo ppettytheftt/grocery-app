@@ -8,27 +8,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/paper-products")
 public class PaperProductController {
 
     @Autowired
     private PaperProductService paperProductService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "grocery/paper-products")
+    @GetMapping
     public List<PaperProduct> getAllPaperProducts() {
         return paperProductService.getAllPaperProducts();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/grocery/paper-products")
+    @GetMapping("/{id}")
+    public PaperProduct getPaperProductById(@PathVariable Integer id) {
+        return paperProductService.getPaperProductById(id);
+    }
+
+    @PostMapping
     public void addPaperProduct(@RequestBody PaperProduct paperProduct) {
         paperProductService.addPaperProduct(paperProduct);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/grocery/paper-products/{id}")
+    @PutMapping("/{id}")
     public void updatePaperProduct(@PathVariable Integer id, @RequestBody PaperProduct newPaperProduct){
         paperProductService.updatePaperProduct(id, newPaperProduct);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/grocery/paper-products/{id}")
+    @DeleteMapping("/{id}")
     public void deletePaperProduct(@PathVariable Integer id) {
         paperProductService.deletePaperProductById(id);
     }

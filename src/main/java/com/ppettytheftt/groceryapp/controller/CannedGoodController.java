@@ -8,27 +8,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/canned-goods")
 public class CannedGoodController {
 
     @Autowired
     private CannedGoodService cannedGoodService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "grocery/canned-goods")
+    @GetMapping
     public List<CannedGood> getAllCannedGoods() {
         return cannedGoodService.getAllCannedGoods();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "grocery/canned-goods")
+    @GetMapping("/{id}")
+    public CannedGood getCannedGoodById(@PathVariable Integer id) {
+        return cannedGoodService.getCannedGoodById(id);
+    }
+
+    @PostMapping
     public void addCannedGood(@RequestBody CannedGood cannedGood) {
         cannedGoodService.addCannedGood(cannedGood);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "grocery/canned-goods/{id}")
+    @PutMapping("/{id}")
     public void updateCannedGood(@PathVariable Integer id, @RequestBody CannedGood newCannedGood) {
         cannedGoodService.updateCannedGood(id, newCannedGood);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "grocery/canned-goods/{id}")
+    @DeleteMapping("/{id}")
     public void deleteCannedGood(@PathVariable Integer id) {
         cannedGoodService.deleteCannedGoodById(id);
     }
